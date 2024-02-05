@@ -1,6 +1,7 @@
-FROM centos:8
-RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-AppStream.repo && \
-    sed -i 's/#baseurl/baseurl/g' /etc/yum.repos.d/CentOS-Linux-AppStream.repo
+FROM centos
+RUN cd /etc/yum.repos.d/
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 RUN yum update -y
 MAINTAINER stefanpopov2409@gmail.com
 RUN yum install -y httpd
