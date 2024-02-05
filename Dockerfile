@@ -1,5 +1,4 @@
 FROM centos:8
-RUN yum makecache
 RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-AppStream.repo && \
     sed -i 's/#baseurl/baseurl/g' /etc/yum.repos.d/CentOS-Linux-AppStream.repo
 RUN yum update -y
